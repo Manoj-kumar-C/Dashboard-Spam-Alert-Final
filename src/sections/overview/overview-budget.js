@@ -21,7 +21,7 @@ export const OverviewBudget = (props) => {
               color="text.secondary"
               variant="overline"
             >
-              sms spams
+              sms Complaints
             </Typography>
             <Typography variant="h4">
               {value}
