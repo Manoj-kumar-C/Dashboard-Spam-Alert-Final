@@ -18,7 +18,7 @@ const data = [
     id: '5e887ac47eed253091be10cb',
     address: {
       city: 'Cleveland',
-      country: 'USA',
+      country: 'India',
       state: 'Ohio',
       street: '2849 Fulton Street'
     },
@@ -32,7 +32,7 @@ const data = [
     id: '5e887b209c28ac3dd97f6db5',
     address: {
       city: 'Atlanta',
-      country: 'USA',
+      country: 'India',
       state: 'Georgia',
       street: '1865  Pleasant Hill Road'
     },
@@ -46,7 +46,7 @@ const data = [
     id: '5e887b7602bdbc4dbb234b27',
     address: {
       city: 'North Canton',
-      country: 'USA',
+      country: 'India',
       state: 'Ohio',
       street: '4894  Lakeland Park Drive'
     },
@@ -74,7 +74,7 @@ const data = [
     id: '5e86805e2bafd54f66cc95c3',
     address: {
       city: 'San Diego',
-      country: 'USA',
+      country: 'India',
       state: 'California',
       street: '75247'
     },
@@ -88,7 +88,7 @@ const data = [
     id: '5e887a1fbefd7938eea9c981',
     address: {
       city: 'Berkeley',
-      country: 'USA',
+      country: 'India',
       state: 'California',
       street: '317 Angus Road'
     },
@@ -102,7 +102,7 @@ const data = [
     id: '5e887d0b3d090c1b8f162003',
     address: {
       city: 'Carson City',
-      country: 'USA',
+      country: 'India',
       state: 'Nevada',
       street: '2188  Armbrester Drive'
     },
@@ -116,7 +116,7 @@ const data = [
     id: '5e88792be2d4cfb4bf0971d9',
     address: {
       city: 'Los Angeles',
-      country: 'USA',
+      country: 'India',
       state: 'California',
       street: '1798  Hickory Ridge Drive'
     },
@@ -130,7 +130,7 @@ const data = [
     id: '5e8877da9a65442b11551975',
     address: {
       city: 'Murray',
-      country: 'USA',
+      country: 'India',
       state: 'Utah',
       street: '3934  Wildrose Lane'
     },
@@ -144,7 +144,7 @@ const data = [
     id: '5e8680e60cba5019c5ca6fda',
     address: {
       city: 'Salt Lake City',
-      country: 'USA',
+      country: 'India',
       state: 'Utah',
       street: '368 Lamberts Branch Road'
     },
@@ -199,7 +199,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Customers | Devias Kit
+          Reports | Spam Alert System
         </title>
       </Head>
       <Box
@@ -218,7 +218,7 @@ const Page = () => {
             >
               <Stack spacing={1}>
                 <Typography variant="h4">
-                  Customers
+                  Reports
                 </Typography>
                 <Stack
                   alignItems="center"
