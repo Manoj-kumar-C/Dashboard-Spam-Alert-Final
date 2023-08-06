@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import ComputerDesktopIcon from '@heroicons/react/24/solid/ComputerDesktopIcon';
-import DeviceTabletIcon from '@heroicons/react/24/solid/DeviceTabletIcon';
+import ChatBubbleBottomCenterTextIcon from '@heroicons/react/24/solid/ChatBubbleBottomCenterTextIcon';
+import EnvelopeIcon from '@heroicons/react/24/solid/EnvelopeIcon';
 import PhoneIcon from '@heroicons/react/24/solid/PhoneIcon';
 import {
   Box,
@@ -63,17 +63,17 @@ const useChartOptions = (labels) => {
 };
 
 const iconMap = {
-  Desktop: (
+  sms: (
     <SvgIcon>
-      <ComputerDesktopIcon />
+      <ChatBubbleBottomCenterTextIcon />
     </SvgIcon>
   ),
-  Tablet: (
+  Mail: (
     <SvgIcon>
-      <DeviceTabletIcon />
+      <EnvelopeIcon />
     </SvgIcon>
   ),
-  Phone: (
+  Call: (
     <SvgIcon>
       <PhoneIcon />
     </SvgIcon>
@@ -86,7 +86,7 @@ export const OverviewTraffic = (props) => {
 
   return (
     <Card sx={sx}>
-      <CardHeader title="Traffic Source" />
+      <CardHeader title="Spam Overview" />
       <CardContent>
         <Chart
           height={300}
