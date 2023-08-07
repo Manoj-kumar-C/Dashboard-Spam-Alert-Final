@@ -28,7 +28,7 @@ export const items = [
     )
   },
   {
-    title: 'Companies',
+    title: 'Major Threads',
     path: '/companies',
     icon: (
       <SvgIcon fontSize="small">

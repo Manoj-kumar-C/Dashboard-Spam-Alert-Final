@@ -19,50 +19,67 @@ import { CompaniesSearch } from 'src/sections/companies/companies-search';
 const companies = [
   {
     id: '2569ce0d517a7f06d3ea1f24',
-    createdAt: '27/03/2019',
-    description: 'Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.',
+    createdAt: '27/06/2023',
+    description: `Congratulations! You have been selected to receive a brand new smartphone absolutely FREE. Just click the link below and provide your personal details to claim this amazing offer. Hurry, this offer expires soon!
+
+    Click Here to Claim Your Free Smartphone
+    
+    Note: This email may contain promotional content. If you no longer wish to receive such offers, please click here to unsubscribe.
+    
+    Sincerely,
+    The ABC Electronics Team`,
     logo: '/assets/logos/logo-dropbox.png',
-    title: 'Dropbox',
+    title: 'ABC Electronics ',
     downloads: '594'
   },
   {
     id: 'ed2b900870ceba72d203ec15',
-    createdAt: '31/03/2019',
-    description: 'Medium is an online publishing platform developed by Evan Williams, and launched in August 2012.',
+    createdAt: '31/03/2023',
+    description: `Subject: Massive Discounts Await You! Limited Time Only!
+    Get ready to save big on your favorite products at SuperMart India! Our exclusive sale is now live, with discounts up to 90% off.
+    Hurry, stock is limited! Click the link below to start shopping now.
+
+Click Here to Shop Now and Save
+
+Unsubscribe | Privacy Policy
+    `,
     logo: '/assets/logos/logo-medium.png',
-    title: 'Medium Corporation',
+    title: ' SuperMart India',
     downloads: '625'
   },
   {
     id: 'a033e38768c82fca90df3db7',
-    createdAt: '03/04/2019',
+    createdAt: '03/04/2023',
     description: 'Slack is a cloud-based set of team collaboration tools and services, founded by Stewart Butterfield.',
     logo: '/assets/logos/logo-slack.png',
-    title: 'Slack',
+    title: 'Fitness Guru India',
     downloads: '857'
   },
   {
     id: '1efecb2bf6a51def9869ab0f',
-    createdAt: '04/04/2019',
+    createdAt: '04/04/2023',
     description: 'Lyft is an on-demand transportation company based in San Francisco, California.',
     logo: '/assets/logos/logo-lyft.png',
-    title: 'Lyft',
+    title: 'DreamVacations India',
     downloads: '406'
   },
   {
     id: '1ed68149f65fbc6089b5fd07',
-    createdAt: '04/04/2019',
+    createdAt: '04/04/2023',
     description: 'GitHub is a web-based hosting service for version control of code using Git.',
     logo: '/assets/logos/logo-github.png',
-    title: 'GitHub',
+    title: 'The Instant Loans India Team',
     downloads: '835'
   },
   {
     id: '5dab321376eff6177407e887',
-    createdAt: '04/04/2019',
-    description: 'Squarespace provides software as a service for website building and hosting. Headquartered in NYC.',
+    createdAt: '04/04/2023',
+    description: `We have faced many spam calls from loan companies.
+
+    The Spam Call Contains We are providing the many loans for startup to improve your knowledge.
+    `,
     logo: '/assets/logos/logo-squarespace.png',
-    title: 'Squarespace',
+    title: 'Fresh Spar',
     downloads: '835'
   }
 ];
@@ -90,7 +107,7 @@ const Page = () => (
           >
             <Stack spacing={1}>
               <Typography variant="h4">
-                Companies
+                Major Threads from Companies
               </Typography>
               <Stack
                 alignItems="center"
