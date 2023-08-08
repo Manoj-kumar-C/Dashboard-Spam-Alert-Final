@@ -14,6 +14,8 @@ import {
 } from '@mui/material';
 import { Chart } from 'src/components/chart';
 
+// Text of the PieChart ---
+
 const useChartOptions = (labels) => {
   const theme = useTheme();
 
@@ -125,7 +127,7 @@ export const OverviewTraffic = (props) => {
                   color="text.secondary"
                   variant="subtitle2"
                 >
-                  {item}%
+                  {/* {item}% */}
                 </Typography>
               </Box>
             );

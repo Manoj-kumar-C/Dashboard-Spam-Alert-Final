@@ -11,18 +11,51 @@ import { OverviewTotalCustomers } from 'src/sections/overview/overview-total-cus
 import { OverviewTotalProfit } from 'src/sections/overview/overview-total-profit';
 import { OverviewTraffic } from 'src/sections/overview/overview-traffic';
 
+
+//implementation
+import React, { useState, useEffect } from 'react';
 const now = new Date();
-async function logMovies() {
-  const response = await fetch("https://tyny.to/s59f16");
-  const movies = await response.json();
-  // console.log(movies);
-  return movies;
-}
+
+///https://script.googleusercontent.com/a/macros/skcet.ac.in/echo?user_content_key=3YDRduvRoakAxHxJcXSsBONnAiazRs455i_Sb3L3IQw_r8Cjgw1U6D6zvoizU_CCsKNITkbQ30ZZB8_l7FGSy2k-XOMvRVjKOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKBgzsmLdOzbHC_8qITVF7fXh8JJZFsljkgcQM4UwS1rQoWPgAlqiImmX9mAQAnR18Agg4_lKswmxUXjaMbz_6Sr52kTLwOFPPziLoVe-K7gHuF6hOpKyfPsT7xlDcEp37g&lib=M3AmioqxckIU5ScEcYdxzk21LwkdVeYUP
 
 
+const Page = () => { 
+  const [smsCount, setSmsCount] = useState(0);
+  const [emailCount, setEmailCount] = useState(0);
+  const [callCount, setCallCount] = useState(0);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://script.googleusercontent.com/a/macros/skcet.ac.in/echo?user_content_key=3YDRduvRoakAxHxJcXSsBONnAiazRs455i_Sb3L3IQw_r8Cjgw1U6D6zvoizU_CCsKNITkbQ30ZZB8_l7FGSy2k-XOMvRVjKOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKBgzsmLdOzbHC_8qITVF7fXh8JJZFsljkgcQM4UwS1rQoWPgAlqiImmX9mAQAnR18Agg4_lKswmxUXjaMbz_6Sr52kTLwOFPPziLoVe-K7gHuF6hOpKyfPsT7xlDcEp37g&lib=M3AmioqxckIU5ScEcYdxzk21LwkdVeYUP");
+        const movies = await response.json();
 
+        let sms = 0;
+        let calls = 0;
+        let email =0;
 
-const Page = () => (
+        for (var i = 0; i < movies.length; i++) {
+          if (movies[i].Type === 'SMS') {
+            sms++;
+          } else if (movies[i].Type === 'Call') {
+            calls++;
+          }
+          else if (movies[i].Type === 'Email') {
+            email++;
+          }
+        }
+
+        setSmsCount(sms);
+        setCallCount(calls);
+        setEmailCount(email);
+      } catch (error) {
+        console.error("Error fetching or processing data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  return(
+
   <>
     <Head>
       <title>
@@ -65,16 +98,16 @@ const Page = () => (
               value="1.9k"
             />
           </Grid>
-          <Grid
+          {/* <Grid
             xs={12}
             sm={6}
             lg={3}
           >
-            <OverviewTasksProgress
+            {/* <OverviewTasksProgress
               sx={{ height: '100%' }}
               value={75.5}
-            />
-          </Grid>
+            /> }
+          </Grid> */}
           <Grid
             xs={12}
             sm={6}
@@ -109,7 +142,7 @@ const Page = () => (
             lg={4}
           >
             <OverviewTraffic
-              chartSeries={[63, 15, 22]}
+              chartSeries={[smsCount,emailCount,callCount]}
               labels={['sms', 'Mail', 'Call']}
               sx={{ height: '100%' }}
             />
@@ -263,6 +296,7 @@ const Page = () => (
     </Box>
   </>
 );
+}
 
 Page.getLayout = (page) => (
   <DashboardLayout>

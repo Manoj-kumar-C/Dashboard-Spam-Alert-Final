@@ -1,7 +1,5 @@
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import ArrowUpOnSquareIcon from '@heroicons/react/24/solid/ArrowUpOnSquareIcon';
-import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
-import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 import {
   Box,
   Button,
@@ -10,177 +8,91 @@ import {
   Stack,
   SvgIcon,
   Typography,
-  Unstable_Grid2 as Grid
+  Unstable_Grid2 as Grid,
 } from '@mui/material';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { CompanyCard } from 'src/sections/companies/company-card';
 import { CompaniesSearch } from 'src/sections/companies/companies-search';
+import ArrowUpOnSquareIcon from '@heroicons/react/24/solid/ArrowUpOnSquareIcon';
+import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
+import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 
-const companies = [
-  {
-    id: '2569ce0d517a7f06d3ea1f24',
-    createdAt: '27/06/2023',
-    description: `Congratulations! You have been selected to receive a brand new smartphone absolutely FREE. Just click the link below and provide your personal details to claim this amazing offer. Hurry, this offer expires soon!
+const Page = () => {
+  const [companies, setCompanies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    Click Here to Claim Your Free Smartphone
-    
-    Note: This email may contain promotional content. If you no longer wish to receive such offers, please click here to unsubscribe.
-    
-    Sincerely,
-    The ABC Electronics Team`,
-    logo: '/assets/logos/logo-dropbox.png',
-    title: 'ABC Electronics ',
-    downloads: '594'
-  },
-  {
-    id: 'ed2b900870ceba72d203ec15',
-    createdAt: '31/03/2023',
-    description: `Subject: Massive Discounts Await You! Limited Time Only!
-    Get ready to save big on your favorite products at SuperMart India! Our exclusive sale is now live, with discounts up to 90% off.
-    Hurry, stock is limited! Click the link below to start shopping now.
+  useEffect(() => {
+    fetchCompanies();
+  }, []);
 
-Click Here to Shop Now and Save
+  const fetchCompanies = async () => {
+    try {
+      const response = await fetch('https://script.googleusercontent.com/a/macros/skcet.ac.in/echo?user_content_key=fOd85014ti1FRAgDdUpmpEmCNjxHo8jgXuJHoJtw1ga3QO9WO8twytQvxU-pdmFioQuxcG56SIJhAjuB-C6TJprQNUnQ0DLnOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKBgzsmLdOzbHC_8qITVF7fXelfDA88TH5qXEG3IEN6qeey3ewgFb73xQ_LR-yM5KeDEMvfffYDy8SXLP6oEXWe2r_0HmUHqSyvZwyuJ9ljfGbMtiljKMqDTXd9B1Z2mfQU&lib=MfcnyH1nSzQSQXDVBlwUwPW1LwkdVeYUP'); // Replace with your API endpoint
+      const data = await response.json();
+      setCompanies(data);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  };
 
-Unsubscribe | Privacy Policy
-    `,
-    logo: '/assets/logos/logo-medium.png',
-    title: ' SuperMart India',
-    downloads: '625'
-  },
-  {
-    id: 'a033e38768c82fca90df3db7',
-    createdAt: '03/04/2023',
-    description: 'Slack is a cloud-based set of team collaboration tools and services, founded by Stewart Butterfield.',
-    logo: '/assets/logos/logo-slack.png',
-    title: 'Fitness Guru India',
-    downloads: '857'
-  },
-  {
-    id: '1efecb2bf6a51def9869ab0f',
-    createdAt: '04/04/2023',
-    description: 'Lyft is an on-demand transportation company based in San Francisco, California.',
-    logo: '/assets/logos/logo-lyft.png',
-    title: 'DreamVacations India',
-    downloads: '406'
-  },
-  {
-    id: '1ed68149f65fbc6089b5fd07',
-    createdAt: '04/04/2023',
-    description: 'GitHub is a web-based hosting service for version control of code using Git.',
-    logo: '/assets/logos/logo-github.png',
-    title: 'The Instant Loans India Team',
-    downloads: '835'
-  },
-  {
-    id: '5dab321376eff6177407e887',
-    createdAt: '04/04/2023',
-    description: `We have faced many spam calls from loan companies.
-
-    The Spam Call Contains We are providing the many loans for startup to improve your knowledge.
-    `,
-    logo: '/assets/logos/logo-squarespace.png',
-    title: 'Fresh Spar',
-    downloads: '835'
+  if (loading) {
+    return <div>Loading...</div>;
   }
-];
 
-const Page = () => (
-  <>
-    <Head>
-      <title>
-        Companies | Spam Alert System
-      </title>
-    </Head>
-    <Box
-      component="main"
-      sx={{
-        flexGrow: 1,
-        py: 8
-      }}
-    >
-      <Container maxWidth="xl">
-        <Stack spacing={3}>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            spacing={4}
-          >
-            <Stack spacing={1}>
-              <Typography variant="h4">
-                Major Threads from Companies
-              </Typography>
-              <Stack
-                alignItems="center"
-                direction="row"
-                spacing={1}
-              >
-                <Button
-                  color="inherit"
-                  startIcon={(
-                    <SvgIcon fontSize="small">
-                      <ArrowUpOnSquareIcon />
-                    </SvgIcon>
-                  )}
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return (
+    <>
+      <Head>
+        <title>Companies | Spam Alert System</title>
+      </Head>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          py: 8,
+        }}
+      >
+        <Container maxWidth="xl">
+          <Stack spacing={3}>
+            {/* The rest of the components */}
+            <Grid
+              container
+              spacing={3}
+            >
+              {companies.map((company) => (
+                <Grid
+                  xs={12}
+                  md={6}
+                  lg={4}
+                  key={company.id}
                 >
-                  Import
-                </Button>
-                <Button
-                  color="inherit"
-                  startIcon={(
-                    <SvgIcon fontSize="small">
-                      <ArrowDownOnSquareIcon />
-                    </SvgIcon>
-                  )}
-                >
-                  Export
-                </Button>
-              </Stack>
-            </Stack>
-            <div>
-              <Button
-                startIcon={(
-                  <SvgIcon fontSize="small">
-                    <PlusIcon />
-                  </SvgIcon>
-                )}
-                variant="contained"
-              >
-                Add
-              </Button>
-            </div>
+                  <CompanyCard company={company} />
+                </Grid>
+              ))}
+            </Grid>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <Pagination
+                count={3}
+                size="small"
+              />
+            </Box>
           </Stack>
-          <CompaniesSearch />
-          <Grid
-            container
-            spacing={3}
-          >
-            {companies.map((company) => (
-              <Grid
-                xs={12}
-                md={6}
-                lg={4}
-                key={company.id}
-              >
-                <CompanyCard company={company} />
-              </Grid>
-            ))}
-          </Grid>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center'
-            }}
-          >
-            <Pagination
-              count={3}
-              size="small"
-            />
-          </Box>
-        </Stack>
-      </Container>
-    </Box>
-  </>
-);
+        </Container>
+      </Box>
+    </>
+  );
+};
 
 Page.getLayout = (page) => (
   <DashboardLayout>
