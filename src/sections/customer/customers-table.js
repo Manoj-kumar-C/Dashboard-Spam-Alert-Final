@@ -101,7 +101,7 @@ export const CustomersTable = (props) => {
                         direction="row"
                         spacing={2}
                       >
-                        <Avatar src={customer.avatar}>
+                        <Avatar src={`https://cdn-icons-png.flaticon.com/512/2815/2815428.png`}>
                           {getInitials(customer.name)}
                         </Avatar>
                         <Typography variant="subtitle2">
