@@ -13,30 +13,6 @@ import { applyPagination } from 'src/utils/apply-pagination';
 
 const now = new Date();
 
-async function logMovies() {
-  const response = await fetch("https://script.googleusercontent.com/a/macros/skcet.ac.in/echo?user_content_key=VHu3PVfU-ZvDtzgAY9cex_rDJY9plW0Bp20nXpQKSi2nmbDuQlBggHKHecqyoaWUQEald_9fUuedua59zIp9LhP4OjKFV9MrOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKBgzsmLdOzbHC_8qITVF7fXh8JJZFsljkgcQM4UwS1rQoWPgAlqiImmX9mAQAnR18Agg4_lKswmxUXjaMbz_6Sr52kTLwOFPPziLoVe-K7gHuF6hOpKyfPsT7xlDcEp37g&lib=M3AmioqxckIU5ScEcYdxzk21LwkdVeYUP");
-  const movies = response;
-  console.log(movies);
-  return movies;
-}
-
-// const data = [{
-//   id: '5e887ac47eed253091be10cb',
-//     address: {
-//       city: 'Cleveland',
-//       country: 'India',
-//       state: 'Ohio',
-//       street: '2849 Fulton Street'
-//     },
-//     avatar: '/assets/avatars/avatar-carson-darrin.png',
-//     createdAt: subDays(subHours(now, 7), 1).getTime(),
-//     email: 'carson.darrin@devias.io',
-//     name: 'Carson Darrin',
-//     phone: '304-428-3097'
-// },
-// ]
-const data1 = logMovies(); 
-
 const data = [
   { id: 1,
     address: '1st street, Coimbatore',

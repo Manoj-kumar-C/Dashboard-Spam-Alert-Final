@@ -28,7 +28,7 @@ const Page = () => {
 
   const fetchCompanies = async () => {
     try {
-      const response = await fetch('https://script.googleusercontent.com/a/macros/skcet.ac.in/echo?user_content_key=fOd85014ti1FRAgDdUpmpEmCNjxHo8jgXuJHoJtw1ga3QO9WO8twytQvxU-pdmFioQuxcG56SIJhAjuB-C6TJprQNUnQ0DLnOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKBgzsmLdOzbHC_8qITVF7fXelfDA88TH5qXEG3IEN6qeey3ewgFb73xQ_LR-yM5KeDEMvfffYDy8SXLP6oEXWe2r_0HmUHqSyvZwyuJ9ljfGbMtiljKMqDTXd9B1Z2mfQU&lib=MfcnyH1nSzQSQXDVBlwUwPW1LwkdVeYUP'); // Replace with your API endpoint
+      const response = await fetch('https://script.googleusercontent.com/a/macros/skcet.ac.in/echo?user_content_key=N-gQoj6uj7_1K_I1NRfFBoHQBWzGpu9fQycdUPibwpRo7lQ0LJAWEX1Dj2wRJjG1Gk3WE6acAbVFRr-SBuo_R2hUK7YBldAsOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKBgzsmLdOzbHC_8qITVF7fXelfDA88TH5qXEG3IEN6qeey3ewgFb73xQ_LR-yM5KeDEMvfffYDy8SXLP6oEXWe2r_0HmUHqSyvZwyuJ9ljfGbMtiljKMqDTXd9B1Z2mfQU&lib=MfcnyH1nSzQSQXDVBlwUwPW1LwkdVeYUP'); // Replace with your API endpoint
       const data = await response.json();
       setCompanies(data);
       setLoading(false);
@@ -60,21 +60,77 @@ const Page = () => {
       >
         <Container maxWidth="xl">
           <Stack spacing={3}>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            spacing={4}
+          >
+            <Stack spacing={1}>
+              <Typography variant="h4">
+                Major Threads from Companies
+              </Typography>
+              <Stack
+                alignItems="center"
+                direction="row"
+                spacing={1}
+              >
+                <Button
+                  color="inherit"
+                  startIcon={(
+                    <SvgIcon fontSize="small">
+                      <ArrowUpOnSquareIcon />
+                    </SvgIcon>
+                  )}
+                >
+                  Import
+                </Button>
+                <Button
+                  color="inherit"
+                  startIcon={(
+                    <SvgIcon fontSize="small">
+                      <ArrowDownOnSquareIcon />
+                    </SvgIcon>
+                  )}
+                >
+                  Export
+                </Button>
+              </Stack>
+            </Stack>
+            <div>
+              <Button
+                startIcon={(
+                  <SvgIcon fontSize="small">
+                    <PlusIcon />
+                  </SvgIcon>
+                )}
+                variant="contained"
+              >
+                Add
+              </Button>
+            </div>
+          </Stack>
+          <CompaniesSearch />
             {/* The rest of the components */}
             <Grid
               container
               spacing={3}
             >
-              {companies.map((company) => (
-                <Grid
-                  xs={12}
-                  md={6}
-                  lg={4}
-                  key={company.id}
-                >
-                  <CompanyCard company={company} />
-                </Grid>
-              ))}
+              {(() => {
+                const items = [];
+                for (let i = 1; i < companies.length; i++) {
+                  items.push(
+                    <Grid
+                      xs={12}
+                      md={6}
+                      lg={4}
+                      key={companies[i].id}
+                    >
+                      <CompanyCard company={companies[i]} />
+                    </Grid>
+                  );
+                }
+                return items;
+              })()}
             </Grid>
             <Box
               sx={{
