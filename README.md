@@ -1,6 +1,10 @@
 Download apk: https://github.com/Manoj-kumar-C/Dashboard-Spam-Alert-Final/blob/main/app_build.apk
 
+Direct apk download link: https://github.com/Manoj-kumar-C/Dashboard-Spam-Alert-Final/releases/download/v1/app_build.apk
+
 Chrome Extension: 
+
+
 
 Dashboard of the Spam Tracker
 
